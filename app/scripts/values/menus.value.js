@@ -1,0 +1,75 @@
+/**
+ * Created by ww on 2015/7/20.
+ */
+/*
+*二级菜单必须有子菜单，否则无效
+* */
+angular.module('app.value')
+.value('menus',[
+    {
+        "name":"APP内容管理",
+        "url":"app.infoMg",
+        "subMenus":[
+            {
+                "name":"系统设置",
+                "url":"",
+                "subMenus":[
+                    {
+                        "name":"案例分类",
+                        "url":"app.infoMg.caseCategory",
+                        "subMenus":[
+                        ]
+                    },
+                    {
+                        "name":"案例管理",
+                        "url":"app.infoMg.caseMg",
+                        "subMenus":[
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name":"网页内容管理",
+        "url":"app.infoMg",
+        "subMenus":[
+            {
+                "name":"系统设置",
+                "url":"",
+                "subMenus":[
+                    {
+                        "name":"案例分类",
+                        "url":"app.infoMg.caseCategory",
+                        "subMenus":[
+                        ]
+                    },
+                    {
+                        "name":"案例管理",
+                        "url":"app.infoMg.caseMg",
+                        "subMenus":[
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name":"用户管理",
+        "url":"app.userMg",
+        "subMenus":[
+            {
+                "name":"内部人员管理",
+                "url":"",
+                "subMenus":[
+                    {
+                        "name":"部门",
+                        "url":"app.userMg.userGroup",
+                        "subMenus":[]
+                    }
+                ]
+            }
+        ]
+    }
+]
+);

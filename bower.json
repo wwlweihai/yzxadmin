@@ -1,0 +1,17 @@
+{
+  "name": "yzxadmin",
+  "private": true,
+  "devDependencies": {
+    "angular": "1.4.3",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.13.0",
+    "fontawesome": "~4.3.0",
+    "holderjs": "~2.8.0",
+    "bootstrap": "~3.3.5",
+    "restangular": "~1.5.1",
+    "angular-ui-tree": "~2.6.0",
+    "angular-xeditable": "~0.1.9",
+    "angular-ui-grid": "~3.0.1",
+    "pdfmake": "~0.1.18"
+  }
+}

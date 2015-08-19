@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+@import (reference) "../../../styles/common";
+.appSider-body{
+    float: left;
+    width: @aside-width;
+    background-color: fade(@theme-bg-color, 20%) !important;
+    .menu-area{
+        .menu{
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            background-color: fade(@theme-bg-color, 20%);
+            color: #ffffff;
+        }
+        .menu.active{
+            background-color: #E8E9EE;
+            color:fade(@theme-bg-color, 80%);
+        }
+        .subMenu-area{
+            padding-left:0px;
+            .subMenu{
+                padding: 7px 0px;
+                padding-left: 35px;
+            }
+            .subMenu:hover{
+                background-color: fade(@theme-bg-color, 10%);
+            }
+        }
+    }
+}
+.appSider-body:before{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    width: inherit;
+    background-color: inherit;
+    border: inherit;
+    content: "";
+}

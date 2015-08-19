@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+@import (reference) "../../../styles/common";
+.navbar{
+    background-color: @theme-bg-color !important;
+}
+.navbar-brand{
+    width: @aside-width;
+    font-size: 16px;
+    color: #ffffff !important;
+    .text-of();
+}
+.navbar-brand:hover{
+    background-color: @theme-bg-color !important;
+}
+//.navbar-nav li:hover{
+//    background-color: #D6D7DB !important;
+//}
+//.navbar-nav li:hover a{
+//    color: #ff0000;
+//}
+.navbar-nav .active a{
+    color: fade(@theme-bg-color,60%);
+}
+.navbar-nav li a{
+    font-size: 14px;
+}
+.navbar-nav li a:hover{
+    color: #ffffff !important;
+}
+.navbar-nav .active a:hover{
+    color: @theme-bg-color !important;
+}
