@@ -8,7 +8,7 @@ angular.module('app.config')
         routeConfig
 ]);
 function routeConfig($stateProvider,$urlRouterProvider) {
-    $urlRouterProvider.otherwise('/app/infoMg/caseCategory');
+    $urlRouterProvider.otherwise('app/userMg/userList');
     $stateProvider
     .state('signin', {
         url: "/signin",

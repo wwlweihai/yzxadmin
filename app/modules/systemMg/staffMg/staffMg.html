@@ -1,0 +1,39 @@
+<div class="staffMg-body view-body">
+    <ol class="breadcrumb">
+        <li><a href="#">系统设置</a></li>
+        <li><a href="#">员工管理</a></li>
+        <li class="active">员工管理</li>
+    </ol>
+    <div class="operator-area">
+        <button type="button" class="btn btn-primary" ng-click="editStaffInfo('add')">+</button>
+        <button type="button" class="btn btn-danger" ng-click="deleteStaff()" ng-disabled="!data.oneRowSelected && !data.multiRowSelected">-</button>
+        <button type="button" class="btn btn-default" ng-click="editStaffInfo('edit')" ng-disabled="!data.oneRowSelected">编辑</button>
+    </div>
+    <div class="grid" ui-grid="gridOptions" ui-grid-exporter ui-grid-selection ui-grid-resize-columns ui-grid-move-columns></div>
+</div>
+<script type="text/ng-template" id="editStaffInfoModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{operatOpts.oprTitle}}员工信息</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" >员工编号</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" ng-model="operatOpts.editObj.id" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" >员工姓名</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" ng-model="operatOpts.editObj.name">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">保存</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+    </div>
+</script>
+

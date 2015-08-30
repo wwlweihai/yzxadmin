@@ -1,0 +1,25 @@
+<div class="userGroup-body view-body"><ol class=breadcrumb><li><a href=#>用户管理</a></li><li><a href=#>内部人员管理</a></li><li class=active>部门</li></ol><div class=row><div class=col-sm-1>编号</div><div class=col-sm-4>部门名称</div><div class=col-sm-2>角色</div><div class=col-sm-5>操作</div></div><div ui-tree data-drag-enabled=false id=tree-root><div ui-tree-nodes ng-model=data><div ui-tree-node ng-repeat="node in data" ng-include="'nodes_renderer.html'"></div></div></div><script type=text/ng-template id=nodes_renderer.html><div class="row">
+            <div class="col-sm-1 num" ng-click="">
+                编号
+            </div>
+            <div class="col-sm-4 dept-name" ng-style="{'padding-left':20+40*($childNodesScope.depth() -1)+'px'}" >
+                <span ng-if="node.nodes && node.nodes.length > 0" class="glyphicon"
+                    ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}" data-nodrag ng-click="toggle(this)">
+                </span>
+                <span ng-class="{'text-pad':node.nodes.length == 0}">
+                    {{node.title}}
+                </span>
+            </div>
+            <div class="col-sm-2 rol">
+                角色
+            </div>
+            <div class="col-sm-5 rol">
+                <a class="pull-left btn btn-primary btn-xs" data-nodrag ng-click="">修改</a>
+                <a class="pull-left btn btn-danger btn-xs" data-nodrag ng-click="remove(this)">删除</a>
+                <a class="pull-left btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)">添加子部门</a>
+            </div>
+        </div>
+        <div ui-tree-nodes ng-model="node.nodes" ng-class="{hidden: collapsed}">
+            <div  ui-tree-node ng-repeat="node in node.nodes" ng-include="'nodes_renderer.html'">
+            </div>
+        </div></script><!--<div class="row">--><!--<div class="col-sm-6">--><!--<div ui-tree data-drag-enabled="false" id="tree-root">--><!--<ol ui-tree-nodes  ng-model="data">--><!--<li  ui-tree-node ng-repeat="node in data" ng-include="'nodes_renderer.html'"></li>--><!--</ol>--><!--</div>--><!--</div>--><!--</div>--><!-- Nested node template --><!--<div data-drag-enabled="false" class="tree-node tree-node-content">--><!--<a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag ng-click="toggle(this)"><span--><!--class="glyphicon"--><!--ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>--><!--</a>--><!--{{node.title}}--><!--<a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)">--><!--<span class="glyphicon glyphicon-remove"></span></a>--><!--<a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;">--><!--<span class="glyphicon glyphicon-plus"></span>--><!--</a>--><!--</div>--></div>

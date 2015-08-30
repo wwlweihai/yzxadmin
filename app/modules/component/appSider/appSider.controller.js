@@ -17,14 +17,16 @@ function appSider($stateParams,$state,$scope) {
 	////////////////
 	function activate() {
         //collapseAll();
-        //$scope.$broadcast('collapseAll');
+        $scope.$broadcast('collapseAll');
 	}
     function collapseTree() {
         $scope.$broadcast('collapseAll');
     };
     function toggle(scope) {
         console.log("toggle");
-        scope.collapseAll();
+        if(scope.collapsed){
+            scope.collapseAll();
+        }
         scope.toggle();
     };
     function direct(menu){

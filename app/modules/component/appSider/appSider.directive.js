@@ -11,7 +11,7 @@ function appSider() {
     };
     return directive;
     function link(scope, element, attrs) {
-        scope.$broadcast('collapseAll');
+        //scope.$broadcast('collapseAll');
     }
 };
 

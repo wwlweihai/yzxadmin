@@ -7,48 +7,44 @@
 angular.module('app.value')
 .value('menus',[
     {
-        "name":"APP内容管理",
-        "url":"app.infoMg",
+        "name":"内容管理",
+        "url":"app.contentMg",
         "subMenus":[
             {
-                "name":"系统设置",
+                "name":"活动管理",
                 "url":"",
                 "subMenus":[
                     {
-                        "name":"案例分类",
-                        "url":"app.infoMg.caseCategory",
-                        "subMenus":[
-                        ]
-                    },
-                    {
-                        "name":"案例管理",
-                        "url":"app.infoMg.caseMg",
-                        "subMenus":[
-                        ]
+                        "name":"活动管理",
+                        "url":"app.contentMg.activityMg"
                     }
                 ]
-            }
-        ]
-    },
-    {
-        "name":"网页内容管理",
-        "url":"app.infoMg",
-        "subMenus":[
+            },
             {
-                "name":"系统设置",
+                "name":"风格管理",
                 "url":"",
                 "subMenus":[
                     {
-                        "name":"案例分类",
-                        "url":"app.infoMg.caseCategory",
-                        "subMenus":[
-                        ]
+                        "name":"风格管理",
+                        "url":"app.contentMg.styleMg"
                     },
                     {
-                        "name":"案例管理",
-                        "url":"app.infoMg.caseMg",
-                        "subMenus":[
-                        ]
+                        "name":"预约管理",
+                        "url":"app.contentMg.subscribeMg"
+                    }
+                ]
+            },
+            {
+                "name":"服务管理",
+                "url":"",
+                "subMenus":[
+                    {
+                        "name":"项目管理",
+                        "url":"app.contentMg.projectMg"
+                    },
+                    {
+                        "name":"报价管理",
+                        "url":"app.contentMg.quoteMg"
                     }
                 ]
             }
@@ -59,13 +55,40 @@ angular.module('app.value')
         "url":"app.userMg",
         "subMenus":[
             {
-                "name":"内部人员管理",
+                "name":"用户管理",
                 "url":"",
                 "subMenus":[
                     {
-                        "name":"部门",
-                        "url":"app.userMg.userGroup",
-                        "subMenus":[]
+                        "name":"用户列表",
+                        "url":"app.userMg.userList"
+                    },
+                    {
+                        "name":"用户积分管理",
+                        "url":"app.userMg.pointsMg"
+                    },
+                    {
+                        "name":"风格收藏管理",
+                        "url":"app.userMg.styleCollectionMg"
+                    },
+                    {
+                        "name":"用户消息管理",
+                        "url":"app.userMg.userMsgMg"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name":"系统设置",
+        "url":"app.systemMg",
+        "subMenus":[
+            {
+                "name":"员工管理",
+                "url":"",
+                "subMenus":[
+                    {
+                        "name":"员工管理",
+                        "url":"app.systemMg.staffMg"
                     }
                 ]
             }

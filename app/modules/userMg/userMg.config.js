@@ -20,12 +20,39 @@ function userMgConfig($stateProvider) {
             }
         }
     })
-    .state('app.userMg.userGroup', {
-        url: '/userGroup',
+    .state('app.userMg.userList', {
+        url: '/userList',
         views:{
             'centerBoard':{
-                templateUrl: 'modules/userMg/userGroup/userGroup.html',
-                controller:'userGroupCtrl'
+                templateUrl: 'modules/userMg/userList/userList.html',
+                controller:'userList'
+            }
+        }
+    })
+    .state('app.userMg.pointsMg', {
+        url: '/pointsMg',
+        views:{
+            'centerBoard':{
+                templateUrl: 'modules/userMg/pointsMg/pointsMg.html',
+                controller:'pointsMg'
+            }
+        }
+    })
+    .state('app.userMg.styleCollectionMg', {
+        url: '/styleCollectionMg',
+        views:{
+            'centerBoard':{
+                templateUrl: 'modules/userMg/styleCollectionMg/styleCollectionMg.html',
+                controller:'styleCollectionMg'
+            }
+        }
+    })
+    .state('app.userMg.userMsgMg', {
+        url: '/userMsgMg',
+        views:{
+            'centerBoard':{
+                templateUrl: 'modules/userMg/userMsgMg/userMsgMg.html',
+                controller:'userMsgMg'
             }
         }
     })

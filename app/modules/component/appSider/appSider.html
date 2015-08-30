@@ -1,7 +1,7 @@
 <div class="appSider-body">
     <div ui-tree data-drag-enabled="false">
         <div ui-tree-nodes ng-model="data.menus" >
-            <ul class="menu-area" ui-tree-node ng-repeat="menu in data.menus" data-collapsed="{{$index}} == 1 ? true:false">
+            <ul class="menu-area" ui-tree-node ng-repeat="menu in data.menus" data-collapsed="{{$index}} != 0 ? true:false">
                 <li class="clickable menu" data-nodrag ng-click="data.toggle(this)" ng-class="{'active':!collapsed}" >
                     {{menu.name}}
                     <i class="accorIcon glyphicon" ng-class="{'glyphicon-chevron-down': collapsed, 'glyphicon-chevron-right': !collapsed}"></i>
