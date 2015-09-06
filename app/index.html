@@ -14,16 +14,18 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+    <!-- endbuild -->
 
+    <!-- build:js(.) scripts/request.js -->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/restangular/dist/restangular.min.js"></script>
+    <!-- endbuild -->
 
+    <!-- build:js(.) scripts/uiGrid.js -->
     <script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
     <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
     <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
@@ -48,6 +50,14 @@
     <script src="scripts/values/main.value.js"></script>
     <script src="scripts/values/menus.value.js"></script>
     <script src="scripts/values/gridOpts.value.js"></script>
+
+    <script src="scripts/object/Style.object.js"></script>
+    <script src="scripts/object/UserInfo.object.js"></script>
+
+    <script src="scripts/service/data.service.js"></script>
+    <script src="scripts/service/users.service.js"></script>
+    <script src="scripts/service/rockUtil.service.js"></script>
+
     <script src="scripts/main.controller.js"></script>
 
     <script src="modules/component/app/app.config.js"></script>
@@ -68,6 +78,7 @@
     <script src="modules/systemMg/systemMg.config.js"></script>
     <script src="modules/systemMg/systemMg.controller.js"></script>
     <script src="modules/systemMg/staffMg/staffMg.controller.js"></script>
+    <script src="modules/systemMg/androidMg/androidMg.controller.js"></script>
 
     <script src="modules/userMg/userMg.config.js"></script>
     <script src="modules/userMg/userMg.controller.js"></script>

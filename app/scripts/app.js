@@ -5,6 +5,7 @@ angular.module('app', [
     'app.core',
     'app.config',
     'app.value',
+    'app.service',
     'app.directive',
     'app.controller'
 ]);
@@ -12,7 +13,6 @@ angular.module('app.core', [
     /*3rd-party modules*/
     //restful request tool
     'restangular',
-    'xeditable',
     'ui.bootstrap',
     'ui.tree',
     'ui.grid',
@@ -25,6 +25,7 @@ angular.module('app.core', [
     //'ui.bootstrap'
 ]);
 angular.module('app.config', ['ui.router']);
+angular.module('app.service', []);
 angular.module('app.value', []);
 angular.module('app.controller', []);
 angular.module('app.directive', []);

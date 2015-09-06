@@ -4,10 +4,11 @@ staffMg.$inject = [
 	'$modal',
 	'gridOpts',
 	'uiGridConstants',
-	'$scope'
+    'rockUtil',
+    '$scope'
 ];
 
-function staffMg($modal,gridOpts,uiGridConstants,$scope) {
+function staffMg($modal,gridOpts,uiGridConstants,rockUtil,$scope) {
     $scope.deleteStaff = deleteStaff;
     $scope.editStaffInfo = editStaffInfo;
     $scope.data = {};
@@ -65,41 +66,16 @@ function staffMg($modal,gridOpts,uiGridConstants,$scope) {
         });
     }
     function editStaffInfo(type){
-        console.log("编辑");
         var selectedRows = $scope.gridApi.selection.getSelectedRows();
-        var targetEditObject = {};
-        if(type == "edit" && selectedRows.length != 1){
-            alert("务必选择一行数据");
-        }else{
-            console.log("编辑");
-            if(type == "edit"){
-                targetEditObject = selectedRows[0];
-            }
-            handleStraffInfoModal(targetEditObject,type);
-        }
-    }
-    function handleStraffInfoModal(editObj,type){
-        var modalInstance = $modal.open({
-            animation: true,
-            templateUrl: 'editStaffInfoModal.html',
-            resolve: {
-                operatOpts: function () {
-                    var obj = {};
-                    obj.editObj = editObj;
-                    if(type == "add") obj.oprTitle = "新增";
-                    if(type == "edit") obj.oprTitle = "编辑";
-                    return obj;
+        rockUtil.openEditModal(selectedRows,type,'editStaffInfoModal.html',sucCallback());
+        function sucCallback(){
+            return function(targetEditObject){
+                if(type == "edit"){
+                    angular.merge(selectedRows[0], targetEditObject);
+                }else{
+                    $scope.gridOptions.data.push(targetEditObject);
                 }
-            },
-            controller: function ($scope, $modalInstance,operatOpts) {
-                $scope.operatOpts = operatOpts;
-                $scope.ok = function () {
-                    $modalInstance.close();
-                };
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
             }
-        });
+        }
     }
 };

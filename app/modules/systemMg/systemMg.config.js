@@ -29,5 +29,14 @@ function systemMgConfig($stateProvider) {
             }
         }
     })
+    .state('app.systemMg.androidMg', {
+        url: '/androidMg',
+        views:{
+            'centerBoard':{
+                templateUrl: 'modules/systemMg/androidMg/androidMg.html',
+                controller:'androidMg'
+            }
+        }
+    })
     ;
 }

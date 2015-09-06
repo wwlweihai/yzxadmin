@@ -1,7 +1,5 @@
 angular.module('app.directive')
-.directive('appHeader',appHeader);
-appHeader.$inject = [];
-function appHeader() {
+.directive('appHeader', function() {
     var directive = {
         link: link,
         templateUrl: 'modules/component/appHeader/appHeader.html',
@@ -14,7 +12,7 @@ function appHeader() {
     return directive;
     function link(scope, element, attrs) {
     };
-};
+});
 
 
 

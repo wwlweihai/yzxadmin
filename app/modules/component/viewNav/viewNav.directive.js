@@ -1,7 +1,5 @@
 angular.module('app.directive')
-.directive('appSider',appSider);
-appSider.$inject = [];
-function appSider() {
+.directive('appSider', function() {
     var directive = {
         link: link,
         templateUrl: 'modules/component/appSider/appSider.html',
@@ -12,7 +10,7 @@ function appSider() {
     return directive;
     function link(scope, element, attrs) {
     }
-};
+});
 
 
 

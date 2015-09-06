@@ -91,6 +91,16 @@ angular.module('app.value')
                         "url":"app.systemMg.staffMg"
                     }
                 ]
+            },
+            {
+            "name":"APP管理",
+                "url":"",
+                "subMenus":[
+                    {
+                        "name":"安卓版本管理",
+                        "url":"app.systemMg.androidMg"
+                    }
+                ]
             }
         ]
     }
