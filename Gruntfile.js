@@ -298,12 +298,12 @@ module.exports = function (grunt) {
         //     }
         //   }
         // },
-        //uglify: {
-        //    options: {
-        //        report: 'min',
-        //        mangle: false
-        //    }
-        //},
+        uglify: {
+            options: {
+                report: 'min',
+                mangle: false
+            }
+        },
         //concat: {
         //   dist: {}
         //},
