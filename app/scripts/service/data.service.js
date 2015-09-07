@@ -11,6 +11,7 @@ function dataService(Restangular){
     var baseRouter = Restangular.one("classes");
 
     var service = {
+        getUsers:getUsers,
         getAll:getAll,
         get:get,
         update:update,
@@ -18,9 +19,18 @@ function dataService(Restangular){
         save:save
     };
     return service;
+    function getUsers(userId,successCall,errorCall){
+        var userRouter = Restangular.one("users",userId);
+        userRouter.get().then(function(data){
+            successCall(data);
+        },function(error){
+            errorCall(error);
+        });
+    };
 
     function getAll(subRouter,queryParams,successCall,errorCall){
         var getRouter = baseRouter.one(subRouter);
+        console.log(queryParams);
         getRouter.get(queryParams).then(function(data){
             successCall(data);
         },function(error){

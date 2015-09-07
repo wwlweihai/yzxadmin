@@ -29,6 +29,15 @@ function contentMgConfig($stateProvider) {
             }
         }
     })
+    .state('app.contentMg.teamMg', {
+        url: '/teamMg',
+        views:{
+            'centerBoard':{
+                templateUrl: 'modules/contentMg/teamMg/teamMg.html',
+                controller:'teamMg'
+            }
+        }
+    })
     .state('app.contentMg.styleMg', {
         url: '/styleMg',
         views:{

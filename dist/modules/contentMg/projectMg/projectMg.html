@@ -1,1 +1,115 @@
-<div class="projectMg-body view-body"><ol class=breadcrumb><li><a href=#>内容管理</a></li><li><a href=#>服务管理</a></li><li class=active>项目管理</li></ol>projectMg</div>
+<div class="projectMg-body view-body"><ol class=breadcrumb><li><a href=#>内容管理</a></li><li><a href=#>服务管理</a></li><li class=active>项目管理</li></ol><div class=operator-area><button type=button class="btn btn-primary" ng-click="editProject('add')">+</button> <button type=button class="btn btn-danger" ng-click=delProject() ng-disabled="!data.oneRowSelected && !data.multiRowSelected">-</button> <button type=button class="btn btn-default" ng-click="editProject('edit')" ng-disabled=!data.oneRowSelected>编辑</button> <button type=button class="btn btn-default" ng-click="editPeriod('edit')" ng-disabled=!data.oneRowSelected>修改阶段</button> <span>0,测量设计；1，水电阶段；2，泥水阶段；3，油漆阶段；4，竣工阶段；5, 软装配饰</span></div><div class=grid ui-grid=gridOptions ui-grid-exporter ui-grid-selection ui-grid-resize-columns ui-grid-move-columns></div></div><script type=text/ng-template id=editProjectModal.html><div class="modal-header">
+        <h3 class="modal-title">{{operatOpts.oprTitle}}项目信息</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >项目风格</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" ng-model="operatOpts.editObj.styleName" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >项目首图</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" ng-model="operatOpts.editObj.styleAvatar" placeholder="填写url地址">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >房间信息</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" ng-model="operatOpts.editObj.roomInfo" placeholder="平方/房间数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >选择用户</label>
+                <div class="col-sm-9">
+                    <select ng-options="item.objectId as item.mobilePhoneNumber for item in operatOpts.etra.users" ng-model="operatOpts.editObj.userId"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >选择家装团队</label>
+                <div class="col-sm-9">
+                    <select ng-options="item as item.name for item in operatOpts.etra.jzTeams" ng-model="operatOpts.editObj.jzTeam"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >选择设计师</label>
+                <div class="col-sm-9">
+                    <select ng-options="item as item.name for item in operatOpts.etra.sjTeams" ng-model="operatOpts.editObj.sjTeam"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >选择监理团队</label>
+                <div class="col-sm-9">
+                    <select ng-options="item as item.name for item in operatOpts.etra.jlTeams" ng-model="operatOpts.editObj.jlTeam"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >项目工期</label>
+                <div class="col-sm-4 ">
+                    <div class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="operatOpts.editObj.startDate" is-open="status.beginOpen"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)"  close-text="Close" placeholder="开始时间"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openStartDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+                <!--<div class="col-sm-4">-->
+                    <!--<input class="form-control" type="text" ng-model="operatOpts.editObj.startDate" placeholder="开始时间">-->
+                <!--</div>-->
+
+                <div class="col-sm-1">
+                    ---
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="operatOpts.editObj.endDate" is-open="status.endOpen"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" placeholder="结束时间"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openEndDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">保存</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+    </div></script><script type=text/ng-template id=editPeriodModal.html><div class="modal-header">
+        <h3 class="modal-title">增加项目阶段</h3>
+        <span>本功能没有编辑功能,如果某个阶段信息填写错误,覆盖添加即可</span>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >阶段选择</label>
+                <div class="col-sm-9">
+                    <select ng-options="item as item.name for item in operatOpts.etra.periodList" ng-model="operatOpts.editObj.period"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >阶段完工时间</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="operatOpts.editObj.date" is-open="status.beginOpen"  datepicker-options="dateOptions" date-disabled="disabled(date, mode)"  close-text="Close" placeholder="开始时间"/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="openStartDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" >阶段图片</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" rows="5" ng-model="operatOpts.editObj.images" placeholder="多组图片,请用逗号(,)分割"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">保存</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+    </div></script>

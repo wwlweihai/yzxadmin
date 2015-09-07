@@ -43,6 +43,10 @@ angular.module('app.value')
                         "url":"app.contentMg.projectMg"
                     },
                     {
+                        "name":"团队管理",
+                        "url":"app.contentMg.teamMg"
+                    },
+                    {
                         "name":"报价管理",
                         "url":"app.contentMg.quoteMg"
                     }

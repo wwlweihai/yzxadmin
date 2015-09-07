@@ -9,12 +9,14 @@ rockUtil.$inject = [
 ];
 function rockUtil($modal,Restangular){
 
+
     var service = {
         openEditModal:openEditModal
     };
     return service;
 
-    function openEditModal(editObj,type,templateUrl,sucCallback) {
+    function openEditModal(editObj,type,templateUrl,sucCallback,etraObject) {
+
         var targetEditObject = {};
         if (type == "edit" && editObj.length != 1) {
             alert("务必选择一行数据");
@@ -30,12 +32,24 @@ function rockUtil($modal,Restangular){
                     operatOpts: function () {
                         var obj = {};
                         obj.editObj = targetEditObject;
+                        obj.etra = angular.copy(etraObject);
+                        console.log(etraObject);
                         if (type == "add") obj.oprTitle = "新增";
                         if (type == "edit") obj.oprTitle = "编辑";
                         return obj;
                     }
                 },
                 controller: function ($scope, $modalInstance, operatOpts) {
+                    $scope.status = {
+                        beginOpen: false,
+                        endOpen: false
+                    };
+                    $scope.openStartDatePicker = function($event) {
+                        $scope.status.beginOpen = true;
+                    };
+                    $scope.openEndDatePicker = function($event) {
+                        $scope.status.endOpen = true;
+                    };
                     $scope.operatOpts = operatOpts;
                     $scope.ok = function () {
                         sucCallback(operatOpts.editObj);
@@ -48,29 +62,5 @@ function rockUtil($modal,Restangular){
             });
         }
     }
-    //function openEditModal(editObj,type,templateUrl,sucCallback){
-    //    var modalInstance = $modal.open({
-    //        animation: true,
-    //        templateUrl : templateUrl,
-    //        resolve: {
-    //            operatOpts: function () {
-    //                var obj = {};
-    //                obj.editObj = editObj;
-    //                if(type == "add") obj.oprTitle = "新增";
-    //                if(type == "edit") obj.oprTitle = "编辑";
-    //                return obj;
-    //            }
-    //        },
-    //        controller: function ($scope, $modalInstance,operatOpts) {
-    //            $scope.operatOpts = operatOpts;
-    //            $scope.ok = function () {
-    //                sucCallback();
-    //                $modalInstance.close();
-    //            };
-    //            $scope.cancel = function () {
-    //                $modalInstance.dismiss('cancel');
-    //            };
-    //        }
-    //    });
-    //}
+
 };
