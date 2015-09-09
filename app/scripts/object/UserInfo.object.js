@@ -1,11 +1,12 @@
 angular.module('app.controller')
 .factory('UserInfo', function () {
-    function UserInfo(userId,alias,roomstatus,roomarea) {
-        // Public properties, assigned to the instance ('this')
+    function UserInfo(objectId,userId,alias,roomstatus,roomarea,jfen) {
+        this.objectId = objectId;
         this.userId = userId;
         this.alias = alias;
         this.roomstatus = roomstatus;
         this.roomarea = roomarea;
+        this.jfen = jfen;
     };
     UserInfo.prototype.toString = function(){
         return UserInfo.name;
@@ -16,31 +17,16 @@ angular.module('app.controller')
     UserInfo.prototype.setRoomStatus = function(value){
         this.roomstatus = value;
     };
-    /**
-     * Private property
-     */
-    var possibleRoles = ['admin', 'editor', 'guest'];
-
-    /**
-     * Private function
-     */
-    function checkRole(role) {
-        return possibleRoles.indexOf(role) !== -1;
-    }
-    /**
-     * Static property
-     * Using copy to prevent modifications to private property
-     */
-    UserInfo.possibleRoles = angular.copy(possibleRoles);
-    /**
-     * Static method, assigned to class
-     * Instance ('this') is not available in static context
-     */
+    UserInfo.prototype.setJfen = function(value){
+        this.jfen = value;
+    };
     UserInfo.build = function (data) {
         return new UserInfo(
+            data.objectId,
             data.userId,
             data.alias,
             data.roomstatus,
+            data.jfen,
             data.roomarea
         );
     };

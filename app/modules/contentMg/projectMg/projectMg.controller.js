@@ -89,8 +89,8 @@ function projectMg(Project,Team,gridOpts,uiGridConstants,dataService,rockUtil,$s
                     });
                 }else{
                     //console.log(targetEditObject);
-                    targetEditObject.periodId = null;
-                    targetEditObject.periods = [];
+                    targetEditObject.periodId = 0;
+                    targetEditObject.periods = new Array();
                     var preAddProject = Project.build(targetEditObject);
                     saveProject(preAddProject,addSuc());
                     function addSuc(){
@@ -121,34 +121,27 @@ function projectMg(Project,Team,gridOpts,uiGridConstants,dataService,rockUtil,$s
         rockUtil.openEditModal(selectedRows,"add",'editPeriodModal.html',successCall(),modalObject);
         function successCall(){
             return function(targetEditObject){
+                var project = Project.build(selectedRows[0]);
+
                 //{periodId: 1, date: Wed Sep 09 2015 00:00:00 GMT+0800 (CST), images: "21123123"}
                 var period = {};
                 period.id = targetEditObject.period.id;
                 period.name = targetEditObject.period.name;
                 period.date = targetEditObject.date;
-                period.images = targetEditObject.images;
-                console.log(period);
-                console.log(selectedRows[0].objectId);
-                //updateProject();
-                //if(type == "edit"){
-                //    updateProject(selectedRows[0].objectId,Project.build(targetEditObject),function(data){
-                //        angular.merge(selectedRows[0], targetEditObject);
-                //    });
-                //}else{
-                //    console.log(targetEditObject);
-                //    var preAddProject = Project.build(targetEditObject);
-                //    saveProject(preAddProject,addSuc());
-                //    function addSuc(){
-                //        return function(data){
-                //            console.log(data);
-                //            preAddProject.setId(data.objectId);
-                //            addDataToGrid(preAddProject);
-                //        }
-                //    };
-                //}
+                period.images = stringToArray(targetEditObject.images);
+                project.setPeriodId(period.id);
+                project.getPeriods().push(period);
+
+                updateProject(project.objectId,project,function(data){
+                    alert("修改项目阶段成功");
+                });
             }
         }
     };
+    function stringToArray(string){
+        var origin = angular.copy(string);
+        return origin.split(",");
+    }
     //本地数据操作
     function setGridData(array){
         $scope.gridOptions.data = array;

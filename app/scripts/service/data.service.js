@@ -27,10 +27,8 @@ function dataService(Restangular){
             errorCall(error);
         });
     };
-
     function getAll(subRouter,queryParams,successCall,errorCall){
         var getRouter = baseRouter.one(subRouter);
-        console.log(queryParams);
         getRouter.get(queryParams).then(function(data){
             successCall(data);
         },function(error){
@@ -42,26 +40,20 @@ function dataService(Restangular){
         getRouter.get(queryParams).then(function(data){
             successCall(data);
         },function(error){
-            errorCall(error);
+            if(errorCall){
+                errorCall(error);
+            }
         });
     };
     function update(subRouter,objId,queryParams,successCall){
-        console.log(queryParams);
         var singleRouter = baseRouter.one(subRouter,objId);
         singleRouter.customPUT(queryParams,null,null,header).then(function(data){
             successCall(data);
         },function(error){
             //errorCall(error);
         });
-        //singleRouter.put(queryParams,header).then(function(data){
-        //    successCall(data);
-        //},function(error){
-        //    errorCall(error);
-        //});
     };
-
     function save(subRouter,subObejct,successCall){
-        console.log("save object");
         baseRouter.post(subRouter,subObejct,null,header).then(function(data){
             successCall(data);
         },function(error){

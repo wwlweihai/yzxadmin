@@ -23,8 +23,11 @@ angular.module('app.controller')
     Project.prototype.setPeriodId = function(periodId){
         this.periodId = periodId;
     };
-    Project.prototype.setPeriod = function(periods){
+    Project.prototype.setPeriods = function(periods){
         this.periods = periods;
+    };
+    Project.prototype.getPeriods = function(){
+        return this.periods;
     };
     /**
      * Static method, assigned to class

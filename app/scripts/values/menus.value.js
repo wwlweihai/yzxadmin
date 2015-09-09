@@ -71,8 +71,8 @@ angular.module('app.value')
                         "url":"app.userMg.pointsMg"
                     },
                     {
-                        "name":"风格收藏管理",
-                        "url":"app.userMg.styleCollectionMg"
+                        "name":"用户信息管理",
+                        "url":"app.userMg.userInfoMg"
                     },
                     {
                         "name":"用户消息管理",

@@ -1,5 +1,19 @@
-<div class="pointsMg-body view-body"><ol class=breadcrumb><li><a href=#>用户管理</a></li><li><a href=#>用户管理</a></li><li class=active>用户积分管理</li></ol><div class=operator-area><button type=button class="btn btn-primary" ng-click="editUserPoints('add')">+</button> <button type=button class="btn btn-danger" ng-click="" ng-disabled="!data.oneRowSelected && !data.multiRowSelected">-</button> <button type=button class="btn btn-default" ng-click="editUserPoints('edit')" ng-disabled=!data.oneRowSelected>编辑</button> <span>此功能是后台人员用来为用户添加积分,直接点击+号 为用户添加几分即可</span></div><div class=grid ui-grid=gridOptions ui-grid-exporter ui-grid-selection ui-grid-resize-columns ui-grid-move-columns></div></div><script type=text/ng-template id=editUserPointsModal.html><div class="modal-header">
-        <h3 class="modal-title">{{operatOpts.oprTitle}}用户积分</h3>
+<div class="pointsMg-body view-body">
+    <ol class="breadcrumb">
+        <li><a href="#">用户管理</a></li>
+        <li><a href="#">用户管理</a></li>
+        <li class="active">用户信息管理</li>
+    </ol>
+    <div class="operator-area" ng-show="false">
+        <button type="button" class="btn btn-primary" ng-click="editUserPoints('add')">+</button>
+        <button type="button" class="btn btn-danger" ng-click="" ng-disabled="!data.oneRowSelected && !data.multiRowSelected">-</button>
+        <button type="button" class="btn btn-default" ng-click="editUserPoints('edit')" ng-disabled="!data.oneRowSelected">编辑</button>
+    </div>
+    <div ng-show="false" class="grid" ui-grid="gridOptions" ui-grid-exporter ui-grid-selection ui-grid-resize-columns ui-grid-move-columns></div>
+</div>
+<script type="text/ng-template" id="editUserPointsModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{operatOpts.oprTitle}}用户信息</h3>
     </div>
     <div class="modal-body">
         <form class="form-horizontal">
@@ -37,4 +51,5 @@
     <div class="modal-footer">
         <button class="btn btn-primary" type="button" ng-click="ok()">保存</button>
         <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
-    </div></script>
+    </div>
+</script>

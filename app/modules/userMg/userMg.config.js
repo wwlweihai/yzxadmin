@@ -47,6 +47,15 @@ function userMgConfig($stateProvider) {
             }
         }
     })
+    .state('app.userMg.userInfoMg', {
+        url: '/userInfoMg',
+        views:{
+            'centerBoard':{
+                templateUrl: 'modules/userMg/userInfoMg/userInfoMg.html',
+                controller:'userInfoMg'
+            }
+        }
+    })
     .state('app.userMg.userMsgMg', {
         url: '/userMsgMg',
         views:{
